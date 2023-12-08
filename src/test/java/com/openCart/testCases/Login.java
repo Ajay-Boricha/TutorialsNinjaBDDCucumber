@@ -21,7 +21,6 @@ public class Login extends Base {
 	@BeforeMethod
 	public void setUp() {
 
-		loadPropertiesFile();
 
 		driver = initializeBrowserWithURL(prop.getProperty("browserName"));
 	}

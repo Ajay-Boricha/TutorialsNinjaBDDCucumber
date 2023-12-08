@@ -20,6 +20,18 @@ public class Base {
 
 	public Base() {
 
+		prop = new Properties();
+
+		try {
+
+			File file = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\openCart\\Config\\config.properties");
+
+			FileInputStream fis = new FileInputStream(file);
+
+			prop.load(fis);
+		} catch (Throwable e) {
+			e.getStackTrace();
+		}
 	}
 
 	public WebDriver initializeBrowserWithURL(String browserName) {
@@ -43,20 +55,4 @@ public class Base {
 		return driver;
 	}
 
-	public void loadPropertiesFile() {
-
-		prop = new Properties();
-
-		try {
-
-			File file = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\openCart\\Config\\config.properties");
-
-			FileInputStream fis = new FileInputStream(file);
-
-			prop.load(fis);
-		} catch (Throwable e) {
-			e.getStackTrace();
-		}
-
-	}
 }

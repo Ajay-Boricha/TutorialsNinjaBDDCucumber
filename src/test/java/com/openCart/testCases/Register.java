@@ -21,7 +21,7 @@ public class Register extends Base {
 	@BeforeMethod
 	public void setUp() {
 
-		driver = initializeBrowserWithURL("edge");
+		driver = initializeBrowserWithURL(prop.getProperty("browserName"));
 	}
 
 	@AfterMethod
