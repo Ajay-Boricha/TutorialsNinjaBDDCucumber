@@ -21,7 +21,6 @@ public class Login extends Base {
 	@BeforeMethod
 	public void setUp() {
 
-
 		driver = initializeBrowserWithURL(prop.getProperty("browserName"));
 	}
 
@@ -52,13 +51,16 @@ public class Login extends Base {
 		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
 		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
 		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(Utility.randomEmailString());
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("xyzabc123");
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(dataProp.getProperty("invalidPassword"));
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 
-		String actualDisplayedText = driver
+		String actualWarningMessageDisplayed = driver
 				.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
 
-		Assert.assertEquals(actualDisplayedText, "Warning: No match for E-Mail Address and/or Password.");
+		String expectedWarningMessage = dataProp.getProperty("emailPasswordNoMatchwarningmessage");
+
+		Assert.assertEquals(actualWarningMessageDisplayed, expectedWarningMessage,
+				"Expected Warning Message is not displayed");
 
 	}
 
@@ -67,13 +69,17 @@ public class Login extends Base {
 
 		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
 		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys("xyzabc123@gmail.com");
+		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(dataProp.getProperty("invalidEmail"));
 		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(prop.getProperty("validPassword"));
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 
-		Assert.assertEquals(
-				driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText(),
-				"Warning: No match for E-Mail Address and/or Password.");
+		String actualWarningMessageDisplayed = driver
+				.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
+
+		String expectedWarningMessage = dataProp.getProperty("emailPasswordNoMatchwarningmessage");
+
+		Assert.assertEquals(actualWarningMessageDisplayed, expectedWarningMessage,
+				"Expected Warning Message is not displayed");
 
 	}
 
@@ -83,12 +89,48 @@ public class Login extends Base {
 		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
 		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
 		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(prop.getProperty("validEmail"));
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys("1234567");
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(dataProp.getProperty("invalidPassword"));
 		driver.findElement(By.xpath("//input[@value='Login']")).click();
 
-		Assert.assertEquals(
-				driver.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText(),
-				"Warning: No match for E-Mail Address and/or Password.");
+		String actualWarningMessageDisplayed = driver
+				.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
+
+		String expectedWarningMessage = dataProp.getProperty("emailPasswordNoMatchwarningmessage");
+
+		Assert.assertEquals(actualWarningMessageDisplayed, expectedWarningMessage,
+				"Expected Warning Message is not displayed");
+
+	}
+
+	@Test
+	public void TC_LF_005() {
+
+		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
+		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
+		driver.findElement(By.xpath("//input[@value='Login']")).click();
+
+		String actualWarningMessageDisplayed = driver
+				.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
+
+		String expectedWarningMessage = dataProp.getProperty("emailPasswordNoMatchwarningmessage");
+
+		Assert.assertEquals(actualWarningMessageDisplayed, expectedWarningMessage,
+				"Expected Warning Message is not displayed");
+
+	}
+
+	@Test
+	public void TC_LF_013() throws InterruptedException {
+
+		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
+		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
+
+		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(dataProp.getProperty("invalidPassword"));
+
+		String actualPasswordFieldType = driver.findElement(By.xpath("//input[@id='input-password']"))
+				.getAttribute("type");
+
+		Assert.assertEquals(actualPasswordFieldType, "password");
 
 	}
 

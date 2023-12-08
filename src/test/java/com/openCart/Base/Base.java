@@ -13,8 +13,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class Base {
 
 	WebDriver driver;
-	
+
 	public Properties prop;
+
+	public Properties dataProp;
 
 	public static final int implicitly_Wait = 10;
 
@@ -22,12 +24,22 @@ public class Base {
 
 		prop = new Properties();
 
+		dataProp = new Properties();
+
+		try {
+			File file2 = new File(
+					System.getProperty("user.dir") + "\\src\\main\\java\\com\\openCart\\Config\\testData.properties");
+			FileInputStream fis2 = new FileInputStream(file2);
+			dataProp.load(fis2);
+		} catch (Throwable e) {
+			e.getStackTrace();
+		}
+
 		try {
 
-			File file = new File(System.getProperty("user.dir")+"\\src\\main\\java\\com\\openCart\\Config\\config.properties");
-
+			File file = new File(
+					System.getProperty("user.dir") + "\\src\\main\\java\\com\\openCart\\Config\\config.properties");
 			FileInputStream fis = new FileInputStream(file);
-
 			prop.load(fis);
 		} catch (Throwable e) {
 			e.getStackTrace();
