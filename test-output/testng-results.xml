@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-11T11:36:22 IST" name="Default suite" finished-at="2023-12-11T11:36:28 IST" duration-ms="6385">
+  <suite started-at="2023-12-12T01:02:34 IST" name="Default suite" finished-at="2023-12-12T01:02:41 IST" duration-ms="7023">
     <groups>
     </groups>
-    <test started-at="2023-12-11T11:36:22 IST" name="Default test" finished-at="2023-12-11T11:36:28 IST" duration-ms="6385">
+    <test started-at="2023-12-12T01:02:34 IST" name="Default test" finished-at="2023-12-12T01:02:41 IST" duration-ms="7023">
       <class name="com.openCart.testCases.Login">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@5158b42f]" started-at="2023-12-11T11:36:22 IST" name="setUp" finished-at="2023-12-11T11:36:26 IST" duration-ms="4839" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@747ddf94]" started-at="2023-12-12T01:02:34 IST" name="setUp" finished-at="2023-12-12T01:02:39 IST" duration-ms="5213" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_008()[pri:0, instance:com.openCart.testCases.Login@5158b42f]" started-at="2023-12-11T11:36:26 IST" name="TC_LF_008" finished-at="2023-12-11T11:36:27 IST" duration-ms="605" status="PASS">
+        <test-method signature="TC_LF_006()[pri:0, instance:com.openCart.testCases.Login@747ddf94]" started-at="2023-12-12T01:02:39 IST" name="TC_LF_006" finished-at="2023-12-12T01:02:40 IST" duration-ms="828" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_LF_008 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@5158b42f]" started-at="2023-12-11T11:36:27 IST" name="tearDown" finished-at="2023-12-11T11:36:28 IST" duration-ms="891" status="PASS">
+        </test-method> <!-- TC_LF_006 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@747ddf94]" started-at="2023-12-12T01:02:40 IST" name="tearDown" finished-at="2023-12-12T01:02:41 IST" duration-ms="932" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

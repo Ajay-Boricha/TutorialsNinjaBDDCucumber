@@ -6,8 +6,8 @@
       <class name="com.openCart.testCases.Login">
         <methods>
           <include name="setUp"/>
-          <include name="TC_LF_008"/>
           <include name="tearDown"/>
+          <include name="TC_LF_006"/>
         </methods>
       </class> <!-- com.openCart.testCases.Login -->
     </classes>

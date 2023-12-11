@@ -4,11 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.openCart.Base.Base;
 import com.openCart.Utils.Utility;
 import com.openCart.pages.AccountPage;
+import com.openCart.pages.ForgottenPasswordPage;
 import com.openCart.pages.HomePage;
 import com.openCart.pages.LoginPage;
 
@@ -36,16 +38,20 @@ public class Login extends Base {
 		driver.quit();
 	}
 
-	@Test(priority = 1)
-	public void TC_LF_001() {
+	@Test(priority = 1, dataProvider= "testData")
+	public void TC_LF_001(String email, String password) {
 
 		homePage = new HomePage(driver);
-		homePage.clickOnMyAccount();
-		homePage.clickOnLogin();
+		homePage.navigateToLogin();
 
 		LoginPage loginPage = new LoginPage(driver);
-		loginPage.enterEmail(prop.getProperty("validEmail"));
-		loginPage.enterPassword(prop.getProperty("validPassword"));
+		
+		//loginPage.enterEmail(prop.getProperty("validEmail"));
+		//loginPage.enterPassword(prop.getProperty("validPassword"));
+		
+		loginPage.enterEmail(email);
+		loginPage.enterPassword(password);
+		
 		loginPage.clickOnLoginButton();
 
 		AccountPage accountPage = new AccountPage(driver);
@@ -59,8 +65,7 @@ public class Login extends Base {
 	public void TC_LF_002() {
 
 		homePage = new HomePage(driver);
-		homePage.clickOnMyAccount();
-		homePage.clickOnLogin();
+		homePage.navigateToLogin();
 
 		loginPage = new LoginPage(driver);
 		loginPage.enterEmail(Utility.randomEmailString());
@@ -77,8 +82,7 @@ public class Login extends Base {
 	public void TC_LF_003() {
 
 		homePage = new HomePage(driver);
-		homePage.clickOnMyAccount();
-		homePage.clickOnLogin();
+		homePage.navigateToLogin();
 
 		loginPage = new LoginPage(driver);
 		loginPage.enterEmail(dataProp.getProperty("invalidEmail"));
@@ -95,8 +99,7 @@ public class Login extends Base {
 	public void TC_LF_004() {
 
 		homePage = new HomePage(driver);
-		homePage.clickOnMyAccount();
-		homePage.clickOnLogin();
+		homePage.navigateToLogin();
 
 		loginPage = new LoginPage(driver);
 		loginPage.enterEmail(prop.getProperty("validEmail"));
@@ -112,8 +115,7 @@ public class Login extends Base {
 	public void TC_LF_005() {
 
 		homePage = new HomePage(driver);
-		homePage.clickOnMyAccount();
-		homePage.clickOnLogin();
+		homePage.navigateToLogin();
 
 		loginPage = new LoginPage(driver);
 		loginPage.clickOnLoginButton();
@@ -125,14 +127,32 @@ public class Login extends Base {
 	}
 	
 	@Test
+	public void TC_LF_006() {
+		homePage = new HomePage(driver);
+		homePage.navigateToLogin();
+				
+		loginPage = new LoginPage(driver);
+		
+		Assert.assertTrue(loginPage.displayStatusOfForgottenPasswordOption());
+
+		
+		loginPage.clickOnForgottenPasswordOption();
+		
+		ForgottenPasswordPage forgottenPasswordPage = new ForgottenPasswordPage(driver);
+		
+		Assert.assertTrue(forgottenPasswordPage.displayStatusOfForgotYourPasswordHeading());
+		
+	}
+
+	@Test
 	public void TC_LF_008() {
 		homePage = new HomePage(driver);
-		homePage.clickOnMyAccount();
-		homePage.clickOnLogin();
-		
-		LoginPage loginPage= new LoginPage(driver);
-		
-		Assert.assertEquals(loginPage.emailPlaceHolderType(), "E-Mail Address", "Email Address place holder is mis match");
+		homePage.navigateToLogin();
+
+		LoginPage loginPage = new LoginPage(driver);
+
+		Assert.assertEquals(loginPage.emailPlaceHolderType(), "E-Mail Address",
+				"Email Address place holder is mis match");
 		Assert.assertEquals(loginPage.passwordPlaceHolderType(), "Password", "Password place holder is mis match");
 	}
 
@@ -140,8 +160,7 @@ public class Login extends Base {
 	public void TC_LF_013() throws InterruptedException {
 
 		homePage = new HomePage(driver);
-		homePage.clickOnMyAccount();
-		homePage.clickOnLogin();
+		homePage.navigateToLogin();
 
 		loginPage = new LoginPage(driver);
 
@@ -150,5 +169,17 @@ public class Login extends Base {
 		Assert.assertEquals(loginPage.checkPasswordFieldType(), "password");
 
 	}
+
+	@DataProvider(name= "testData")
+	public Object testData() {
+
+		Object[][] data = { { "bajay1@gmail.com", "12345" }, { "bajay2@gmail.com", "123456" },
+				{ "bajay3@gmail.com", "123456" } };
+		
+		return data;
+
+	}
+	
+
 
 }

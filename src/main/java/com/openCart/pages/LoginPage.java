@@ -17,16 +17,19 @@ public class LoginPage {
 
 	// object
 	@FindBy(xpath = "//input[@id='input-email']")
-	WebElement enterEmail;
+	private WebElement enterEmail;
 
 	@FindBy(xpath = "//input[@id='input-password']")
-	WebElement enterPassword;
+	private WebElement enterPassword;
 
 	@FindBy(xpath = "//input[@value='Login']")
-	WebElement loginButton;
+	private WebElement loginButton;
 
 	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")
-	WebElement noMatchForEmailAndPassword;
+	private WebElement noMatchForEmailAndPassword;
+	
+	@FindBy(xpath="//div[@class='form-group']//a[normalize-space()='Forgotten Password']")
+	private WebElement forgottenPasswordButton;
 
 	// Actions
 	public void enterEmail(String emailText) {
@@ -53,8 +56,17 @@ public class LoginPage {
 		loginButton.click();
 	}
 	
+	public void clickOnForgottenPasswordOption() {
+		forgottenPasswordButton.click();
+	}
+	
 	public String noMatchForEmailAndPasswordText() {
 		return noMatchForEmailAndPassword.getText();
+	}
+	
+	public boolean displayStatusOfForgottenPasswordOption() {
+		return forgottenPasswordButton.isDisplayed();
+		
 	}
 
 }
