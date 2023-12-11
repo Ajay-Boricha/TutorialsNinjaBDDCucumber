@@ -1,6 +1,5 @@
 package com.openCart.testCases;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -9,10 +8,17 @@ import org.testng.annotations.Test;
 
 import com.openCart.Base.Base;
 import com.openCart.Utils.Utility;
+import com.openCart.pages.AccountPage;
+import com.openCart.pages.HomePage;
+import com.openCart.pages.LoginPage;
 
 public class Login extends Base {
 
 	WebDriver driver;
+
+	HomePage homePage;
+
+	LoginPage loginPage;
 
 	public Login() {
 		super();
@@ -33,14 +39,18 @@ public class Login extends Base {
 	@Test(priority = 1)
 	public void TC_LF_001() {
 
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(prop.getProperty("validEmail"));
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		homePage = new HomePage(driver);
+		homePage.clickOnMyAccount();
+		homePage.clickOnLogin();
 
-		Assert.assertTrue(
-				driver.findElement(By.xpath("//a[normalize-space()='Edit your account information']")).isDisplayed(),
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterEmail(prop.getProperty("validEmail"));
+		loginPage.enterPassword(prop.getProperty("validPassword"));
+		loginPage.clickOnLoginButton();
+
+		AccountPage accountPage = new AccountPage(driver);
+
+		Assert.assertTrue(accountPage.displayStatusOfEditYourAccount(),
 				"Edit your account information is not displayed");
 
 	}
@@ -48,18 +58,17 @@ public class Login extends Base {
 	@Test(priority = 2)
 	public void TC_LF_002() {
 
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(Utility.randomEmailString());
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(dataProp.getProperty("invalidPassword"));
-		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		homePage = new HomePage(driver);
+		homePage.clickOnMyAccount();
+		homePage.clickOnLogin();
 
-		String actualWarningMessageDisplayed = driver
-				.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
+		loginPage = new LoginPage(driver);
+		loginPage.enterEmail(Utility.randomEmailString());
+		loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
+		loginPage.clickOnLoginButton();
 
-		String expectedWarningMessage = dataProp.getProperty("emailPasswordNoMatchwarningmessage");
-
-		Assert.assertEquals(actualWarningMessageDisplayed, expectedWarningMessage,
+		Assert.assertEquals(loginPage.noMatchForEmailAndPasswordText(),
+				dataProp.getProperty("emailPasswordNoMatchwarningmessage"),
 				"Expected Warning Message is not displayed");
 
 	}
@@ -67,18 +76,17 @@ public class Login extends Base {
 	@Test(priority = 3)
 	public void TC_LF_003() {
 
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(dataProp.getProperty("invalidEmail"));
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(prop.getProperty("validPassword"));
-		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		homePage = new HomePage(driver);
+		homePage.clickOnMyAccount();
+		homePage.clickOnLogin();
 
-		String actualWarningMessageDisplayed = driver
-				.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
+		loginPage = new LoginPage(driver);
+		loginPage.enterEmail(dataProp.getProperty("invalidEmail"));
+		loginPage.enterPassword(prop.getProperty("validPassword"));
+		loginPage.clickOnLoginButton();
 
-		String expectedWarningMessage = dataProp.getProperty("emailPasswordNoMatchwarningmessage");
-
-		Assert.assertEquals(actualWarningMessageDisplayed, expectedWarningMessage,
+		Assert.assertEquals(loginPage.noMatchForEmailAndPasswordText(),
+				dataProp.getProperty("emailPasswordNoMatchwarningmessage"),
 				"Expected Warning Message is not displayed");
 
 	}
@@ -86,35 +94,32 @@ public class Login extends Base {
 	@Test(priority = 4)
 	public void TC_LF_004() {
 
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(prop.getProperty("validEmail"));
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(dataProp.getProperty("invalidPassword"));
-		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		homePage = new HomePage(driver);
+		homePage.clickOnMyAccount();
+		homePage.clickOnLogin();
 
-		String actualWarningMessageDisplayed = driver
-				.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
+		loginPage = new LoginPage(driver);
+		loginPage.enterEmail(prop.getProperty("validEmail"));
+		loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
+		loginPage.clickOnLoginButton();
 
-		String expectedWarningMessage = dataProp.getProperty("emailPasswordNoMatchwarningmessage");
-
-		Assert.assertEquals(actualWarningMessageDisplayed, expectedWarningMessage,
+		Assert.assertEquals(loginPage.noMatchForEmailAndPasswordText(),
+				dataProp.getProperty("emailPasswordNoMatchwarningmessage"),
 				"Expected Warning Message is not displayed");
-
 	}
 
 	@Test
 	public void TC_LF_005() {
 
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
-		driver.findElement(By.xpath("//input[@value='Login']")).click();
+		homePage = new HomePage(driver);
+		homePage.clickOnMyAccount();
+		homePage.clickOnLogin();
 
-		String actualWarningMessageDisplayed = driver
-				.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
+		loginPage = new LoginPage(driver);
+		loginPage.clickOnLoginButton();
 
-		String expectedWarningMessage = dataProp.getProperty("emailPasswordNoMatchwarningmessage");
-
-		Assert.assertEquals(actualWarningMessageDisplayed, expectedWarningMessage,
+		Assert.assertEquals(loginPage.noMatchForEmailAndPasswordText(),
+				dataProp.getProperty("emailPasswordNoMatchwarningmessage"),
 				"Expected Warning Message is not displayed");
 
 	}
@@ -122,15 +127,15 @@ public class Login extends Base {
 	@Test
 	public void TC_LF_013() throws InterruptedException {
 
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-		driver.findElement(By.xpath("//a[normalize-space()='Login']")).click();
+		homePage = new HomePage(driver);
+		homePage.clickOnMyAccount();
+		homePage.clickOnLogin();
 
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(dataProp.getProperty("invalidPassword"));
+		loginPage = new LoginPage(driver);
 
-		String actualPasswordFieldType = driver.findElement(By.xpath("//input[@id='input-password']"))
-				.getAttribute("type");
+		loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
 
-		Assert.assertEquals(actualPasswordFieldType, "password");
+		Assert.assertEquals(loginPage.checkPasswordFieldType(), "password");
 
 	}
 
