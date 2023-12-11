@@ -6,12 +6,7 @@
       <class name="com.openCart.testCases.Login">
         <methods>
           <include name="setUp"/>
-          <include name="TC_LF_003"/>
-          <include name="TC_LF_001"/>
-          <include name="TC_LF_004"/>
-          <include name="TC_LF_002"/>
-          <include name="TC_LF_013"/>
-          <include name="TC_LF_005"/>
+          <include name="TC_LF_008"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.openCart.testCases.Login -->

@@ -123,6 +123,18 @@ public class Login extends Base {
 				"Expected Warning Message is not displayed");
 
 	}
+	
+	@Test
+	public void TC_LF_008() {
+		homePage = new HomePage(driver);
+		homePage.clickOnMyAccount();
+		homePage.clickOnLogin();
+		
+		LoginPage loginPage= new LoginPage(driver);
+		
+		Assert.assertEquals(loginPage.emailPlaceHolderType(), "E-Mail Address", "Email Address place holder is mis match");
+		Assert.assertEquals(loginPage.passwordPlaceHolderType(), "Password", "Password place holder is mis match");
+	}
 
 	@Test
 	public void TC_LF_013() throws InterruptedException {

@@ -40,6 +40,14 @@ public class LoginPage {
 	public String checkPasswordFieldType() {
 		return enterPassword.getAttribute("type");
 	}
+	
+	public String  emailPlaceHolderType() {
+		return enterEmail.getAttribute("placeholder");
+	}
+	
+	public String passwordPlaceHolderType() {
+		return enterPassword.getAttribute("placeholder");
+	}
 
 	public void clickOnLoginButton() {
 		loginButton.click();
