@@ -38,21 +38,13 @@ public class Login extends Base {
 		driver.quit();
 	}
 
-	@Test(priority = 1, dataProvider= "testData")
+	@Test(priority = 1, dataProvider = "testData")
 	public void TC_LF_001(String email, String password) {
 
 		homePage = new HomePage(driver);
-		homePage.navigateToLogin();
+		loginPage = homePage.navigateToLogin();
 
-		LoginPage loginPage = new LoginPage(driver);
-		
-		//loginPage.enterEmail(prop.getProperty("validEmail"));
-		//loginPage.enterPassword(prop.getProperty("validPassword"));
-		
-		loginPage.enterEmail(email);
-		loginPage.enterPassword(password);
-		
-		loginPage.clickOnLoginButton();
+		loginPage.login(email, password);
 
 		AccountPage accountPage = new AccountPage(driver);
 
@@ -65,12 +57,9 @@ public class Login extends Base {
 	public void TC_LF_002() {
 
 		homePage = new HomePage(driver);
-		homePage.navigateToLogin();
+		loginPage = homePage.navigateToLogin();
 
-		loginPage = new LoginPage(driver);
-		loginPage.enterEmail(Utility.randomEmailString());
-		loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
-		loginPage.clickOnLoginButton();
+		loginPage.login(Utility.randomEmailString(), dataProp.getProperty("invalidPassword"));
 
 		Assert.assertEquals(loginPage.noMatchForEmailAndPasswordText(),
 				dataProp.getProperty("emailPasswordNoMatchwarningmessage"),
@@ -82,12 +71,9 @@ public class Login extends Base {
 	public void TC_LF_003() {
 
 		homePage = new HomePage(driver);
-		homePage.navigateToLogin();
+		loginPage = homePage.navigateToLogin();
 
-		loginPage = new LoginPage(driver);
-		loginPage.enterEmail(dataProp.getProperty("invalidEmail"));
-		loginPage.enterPassword(prop.getProperty("validPassword"));
-		loginPage.clickOnLoginButton();
+		loginPage.login(dataProp.getProperty("invalidEmail"), prop.getProperty("validPassword"));
 
 		Assert.assertEquals(loginPage.noMatchForEmailAndPasswordText(),
 				dataProp.getProperty("emailPasswordNoMatchwarningmessage"),
@@ -99,12 +85,9 @@ public class Login extends Base {
 	public void TC_LF_004() {
 
 		homePage = new HomePage(driver);
-		homePage.navigateToLogin();
+		loginPage = homePage.navigateToLogin();
 
-		loginPage = new LoginPage(driver);
-		loginPage.enterEmail(prop.getProperty("validEmail"));
-		loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
-		loginPage.clickOnLoginButton();
+		loginPage.login(prop.getProperty("validEmail"), dataProp.getProperty("invalidPassword"));
 
 		Assert.assertEquals(loginPage.noMatchForEmailAndPasswordText(),
 				dataProp.getProperty("emailPasswordNoMatchwarningmessage"),
@@ -115,9 +98,8 @@ public class Login extends Base {
 	public void TC_LF_005() {
 
 		homePage = new HomePage(driver);
-		homePage.navigateToLogin();
+		loginPage = homePage.navigateToLogin();
 
-		loginPage = new LoginPage(driver);
 		loginPage.clickOnLoginButton();
 
 		Assert.assertEquals(loginPage.noMatchForEmailAndPasswordText(),
@@ -125,31 +107,26 @@ public class Login extends Base {
 				"Expected Warning Message is not displayed");
 
 	}
-	
+
 	@Test
 	public void TC_LF_006() {
 		homePage = new HomePage(driver);
-		homePage.navigateToLogin();
-				
-		loginPage = new LoginPage(driver);
-		
+		loginPage = homePage.navigateToLogin();
+
 		Assert.assertTrue(loginPage.displayStatusOfForgottenPasswordOption());
 
-		
 		loginPage.clickOnForgottenPasswordOption();
-		
+
 		ForgottenPasswordPage forgottenPasswordPage = new ForgottenPasswordPage(driver);
-		
+
 		Assert.assertTrue(forgottenPasswordPage.displayStatusOfForgotYourPasswordHeading());
-		
+
 	}
 
 	@Test
 	public void TC_LF_008() {
 		homePage = new HomePage(driver);
-		homePage.navigateToLogin();
-
-		LoginPage loginPage = new LoginPage(driver);
+		loginPage = homePage.navigateToLogin();
 
 		Assert.assertEquals(loginPage.emailPlaceHolderType(), "E-Mail Address",
 				"Email Address place holder is mis match");
@@ -160,9 +137,7 @@ public class Login extends Base {
 	public void TC_LF_013() throws InterruptedException {
 
 		homePage = new HomePage(driver);
-		homePage.navigateToLogin();
-
-		loginPage = new LoginPage(driver);
+		loginPage = homePage.navigateToLogin();
 
 		loginPage.enterPassword(dataProp.getProperty("invalidPassword"));
 
@@ -170,16 +145,14 @@ public class Login extends Base {
 
 	}
 
-	@DataProvider(name= "testData")
+	@DataProvider(name = "testData")
 	public Object testData() {
 
 		Object[][] data = { { "bajay1@gmail.com", "12345" }, { "bajay2@gmail.com", "123456" },
 				{ "bajay3@gmail.com", "123456" } };
-		
+
 		return data;
 
 	}
-	
-
 
 }

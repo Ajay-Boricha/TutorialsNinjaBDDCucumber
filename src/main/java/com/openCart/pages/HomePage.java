@@ -22,6 +22,9 @@ public class HomePage {
 
 	@FindBy(xpath = "//a[normalize-space()='Login']")
 	private WebElement loginOption;
+	
+	@FindBy(xpath="//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Register']")
+	private WebElement registerOption;
 
 	// actions
 	public void clickOnMyAccount() {
@@ -32,10 +35,16 @@ public class HomePage {
 		loginOption.click();
 	}
 
-	public void navigateToLogin() {
+	public LoginPage navigateToLogin() {
 		myAccountOption.click();
 		loginOption.click();
+		return new LoginPage(driver);
 
+	}
+	
+	public void navigateToRegister() {
+		myAccountOption.click();
+		registerOption.click();
 	}
 
 }

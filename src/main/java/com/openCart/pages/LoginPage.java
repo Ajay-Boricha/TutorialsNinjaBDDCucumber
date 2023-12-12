@@ -36,8 +36,8 @@ public class LoginPage {
 		enterEmail.sendKeys(emailText);
 	}
 
-	public void enterPassword(String passwordTest) {
-		enterPassword.sendKeys(passwordTest);
+	public void enterPassword(String passwordText) {
+		enterPassword.sendKeys(passwordText);
 	}
 	
 	public String checkPasswordFieldType() {
@@ -67,6 +67,12 @@ public class LoginPage {
 	public boolean displayStatusOfForgottenPasswordOption() {
 		return forgottenPasswordButton.isDisplayed();
 		
+	}
+	
+	public void login(String emailText, String passwordText) {
+		enterEmail.sendKeys(emailText);
+		enterPassword.sendKeys(passwordText);
+		loginButton.click();
 	}
 
 }

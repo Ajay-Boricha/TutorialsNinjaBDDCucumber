@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 
 import com.openCart.Base.Base;
 import com.openCart.Utils.Utility;
+import com.openCart.pages.HomePage;
+import com.openCart.pages.RegisterPage;
 
 public class Register extends Base {
 
@@ -32,20 +34,14 @@ public class Register extends Base {
 	@Test(priority = 1)
 	public void TC_RF_001() {
 
-		System.out.println("Hello");
+		HomePage homePage = new HomePage(driver);
+		homePage.navigateToRegister();
 
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-		driver.findElement(By.xpath("//a[normalize-space()='Register']")).click();
+		RegisterPage registerPage = new RegisterPage(driver);
 
-		driver.findElement(By.xpath("//input[@id='input-firstname']")).sendKeys(dataProp.getProperty("firstName"));
-		driver.findElement(By.xpath("//input[@id='input-lastname']")).sendKeys(dataProp.getProperty("lastName"));
-		driver.findElement(By.xpath("//input[@id='input-email']")).sendKeys(Utility.randomEmailString());
-		driver.findElement(By.xpath("//input[@id='input-telephone']"))
-				.sendKeys(dataProp.getProperty("telephoneNumber"));
-		driver.findElement(By.xpath("//input[@id='input-password']")).sendKeys(dataProp.getProperty("password"));
-		driver.findElement(By.xpath("//input[@id='input-confirm']")).sendKeys(dataProp.getProperty("password"));
-		driver.findElement(By.xpath("//input[@name='agree']")).click();
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
+		registerPage.enterAndSubmitAllMandatoryField(dataProp.getProperty("firstName"),
+				dataProp.getProperty("lastName"), Utility.randomEmailString(), dataProp.getProperty("telephoneNumber"),
+				dataProp.getProperty("password"));
 
 		String actualAccountSucesssHeading = driver
 				.findElement(By.xpath("//h1[normalize-space()='Your Account Has Been Created!']")).getText();
@@ -92,7 +88,5 @@ public class Register extends Base {
 		Assert.assertEquals(actualPasswordWarningMessage, dataProp.getProperty("passwordWarningMessage"));
 
 	}
-	
-
 
 }
