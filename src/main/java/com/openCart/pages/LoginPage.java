@@ -56,8 +56,9 @@ public class LoginPage {
 		loginButton.click();
 	}
 	
-	public void clickOnForgottenPasswordOption() {
+	public ForgottenPasswordPage clickOnForgottenPasswordOption() {
 		forgottenPasswordButton.click();
+		return new ForgottenPasswordPage(driver);
 	}
 	
 	public String noMatchForEmailAndPasswordText() {
@@ -69,10 +70,11 @@ public class LoginPage {
 		
 	}
 	
-	public void login(String emailText, String passwordText) {
+	public AccountPage login(String emailText, String passwordText) {
 		enterEmail.sendKeys(emailText);
 		enterPassword.sendKeys(passwordText);
 		loginButton.click();
+		return new AccountPage(driver);
 	}
 
 }

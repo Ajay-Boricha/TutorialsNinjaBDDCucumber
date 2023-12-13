@@ -8,10 +8,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.openCart.Base.Base;
+import com.openCart.pages.HomePage;
 
 public class Search extends Base {
 
 	WebDriver driver;
+	
+	HomePage homePage;
 
 	public Search() {
 		super();
@@ -21,6 +24,9 @@ public class Search extends Base {
 	public void setUp() {
 
 		driver = initializeBrowserWithURL(prop.getProperty("browserName"));
+		
+		homePage= new HomePage(driver);
+
 	}
 
 	@AfterMethod
@@ -31,10 +37,10 @@ public class Search extends Base {
 	@Test(priority = 1)
 	public void TC_SF_001() {
 
-		driver.findElement(By.xpath("//input[@name='search']")).sendKeys("iMac");
-		driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
+		homePage.enterSearch("iMac");
+		homePage.clickOnSearchButton();
 
-		Assert.assertTrue(driver.findElement(By.xpath("//a[normalize-space()='iMac']")).isDisplayed(),
+		Assert.assertTrue(homePage.displayStatusOfValidProduct(),
 				"valid search product is not displayed");
 
 	}
@@ -42,14 +48,10 @@ public class Search extends Base {
 	@Test
 	public void TC_SF_002() {
 
-		driver.findElement(By.xpath("//input[@name='search']")).sendKeys("Fitbit");
-		driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
-
-		String actualnoProductMessage = driver
-				.findElement(By.xpath("//p[contains(text(),'There is no product that matches the search criter')]"))
-				.getText();
-
-		Assert.assertEquals(actualnoProductMessage, "There is no product that matches the search criteria.",
+		homePage.enterSearch("Fitbit");
+		homePage.clickOnSearchButton();
+		
+		Assert.assertEquals(homePage.noProductThatMatchTheCriteriaText(), "There is no product that matches the search criteria.",
 				"Expected product message is not displayed");
 
 	}

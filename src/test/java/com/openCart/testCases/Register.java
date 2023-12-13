@@ -1,6 +1,5 @@
 package com.openCart.testCases;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -16,6 +15,10 @@ public class Register extends Base {
 
 	WebDriver driver;
 
+	RegisterPage registerPage;
+
+	HomePage homePage;
+
 	public Register() {
 		super();
 	}
@@ -24,6 +27,9 @@ public class Register extends Base {
 	public void setUp() {
 
 		driver = initializeBrowserWithURL(prop.getProperty("browserName"));
+
+		homePage = new HomePage(driver);
+
 	}
 
 	@AfterMethod
@@ -34,58 +40,38 @@ public class Register extends Base {
 	@Test(priority = 1)
 	public void TC_RF_001() {
 
-		HomePage homePage = new HomePage(driver);
-		homePage.navigateToRegister();
-
-		RegisterPage registerPage = new RegisterPage(driver);
+		registerPage = homePage.navigateToRegister();
 
 		registerPage.enterAndSubmitAllMandatoryField(dataProp.getProperty("firstName"),
 				dataProp.getProperty("lastName"), Utility.randomEmailString(), dataProp.getProperty("telephoneNumber"),
 				dataProp.getProperty("password"));
 
-		String actualAccountSucesssHeading = driver
-				.findElement(By.xpath("//h1[normalize-space()='Your Account Has Been Created!']")).getText();
-
-		Assert.assertEquals(actualAccountSucesssHeading, dataProp.getProperty("accountSuccessfullyCreatedHeading"));
+		Assert.assertEquals(registerPage.accountSuccessHeadingText(),
+				dataProp.getProperty("accountSuccessfullyCreatedHeading"));
 
 	}
 
 	@Test(priority = 2)
 	public void TC_RF_004() {
 
-		driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
-		driver.findElement(By.xpath("//a[normalize-space()='Register']")).click();
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
+		registerPage = homePage.navigateToRegister();
 
-		String actualPrivacyPolicyWarningMessage = driver
-				.findElement(By.xpath("//div[@class='alert alert-danger alert-dismissible']")).getText();
-		Assert.assertEquals(actualPrivacyPolicyWarningMessage,
+		registerPage.clickOnContinueButton();
+
+		Assert.assertEquals(registerPage.privacyPolicyWarningMessageText(),
 				dataProp.getProperty("privacyPolicyWarningMessageWarning"));
 
-		String actualFirstNameWarningMessage = driver
-				.findElement(By.xpath("//div[contains(text(),'First Name must be between 1 and 32 characters!')]"))
-				.getText();
-		Assert.assertEquals(actualFirstNameWarningMessage, dataProp.getProperty("firstNameWarningMessage"));
+		Assert.assertEquals(registerPage.firstNameWarningMessageText(),
+				dataProp.getProperty("firstNameWarningMessage"));
 
-		String actualLastNameWarningMessage = driver
-				.findElement(By.xpath("//div[contains(text(),'Last Name must be between 1 and 32 characters!')]"))
-				.getText();
-		Assert.assertEquals(actualLastNameWarningMessage, dataProp.getProperty("lastNameWarningMesage"));
+		Assert.assertEquals(registerPage.lastNameWarningMessageText(), dataProp.getProperty("lastNameWarningMesage"));
 
-		String actualEMailWarningMessage = driver
-				.findElement(By.xpath("//div[contains(text(),'E-Mail Address does not appear to be valid!')]"))
-				.getText();
-		Assert.assertEquals(actualEMailWarningMessage, dataProp.getProperty("emailWarningMessage"));
+		Assert.assertEquals(registerPage.emailWarningMessageText(), dataProp.getProperty("emailWarningMessage"));
 
-		String actualTelephoneWarningMessage = driver
-				.findElement(By.xpath("//div[contains(text(),'Telephone must be between 3 and 32 characters!')]"))
-				.getText();
-		Assert.assertEquals(actualTelephoneWarningMessage, dataProp.getProperty("telephoneNumberWarningMessage"));
+		Assert.assertEquals(registerPage.telephoneWarningMessageText(),
+				dataProp.getProperty("telephoneNumberWarningMessage"));
 
-		String actualPasswordWarningMessage = driver
-				.findElement(By.xpath("//div[contains(text(),'Password must be between 4 and 20 characters!')]"))
-				.getText();
-		Assert.assertEquals(actualPasswordWarningMessage, dataProp.getProperty("passwordWarningMessage"));
+		Assert.assertEquals(registerPage.passwordWarningMessageText(), dataProp.getProperty("passwordWarningMessage"));
 
 	}
 

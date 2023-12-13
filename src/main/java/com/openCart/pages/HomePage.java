@@ -25,6 +25,19 @@ public class HomePage {
 	
 	@FindBy(xpath="//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Register']")
 	private WebElement registerOption;
+	
+	@FindBy(xpath="//input[@name='search']")
+	private WebElement searchField;
+	
+	@FindBy(xpath="//i[@class='fa fa-search']")
+	private WebElement searchButton;
+	
+	@FindBy(xpath="//a[normalize-space()='iMac']")
+	private WebElement validProduct;
+	
+	@FindBy(xpath="//p[contains(text(),'There is no product that matches the search criter')]")
+	private WebElement noProductThatMatchTheCriteria;
+	
 
 	// actions
 	public void clickOnMyAccount() {
@@ -42,9 +55,26 @@ public class HomePage {
 
 	}
 	
-	public void navigateToRegister() {
+	public RegisterPage navigateToRegister() {
 		myAccountOption.click();
 		registerOption.click();
+		return new RegisterPage(driver);
+	}
+	
+	public void enterSearch(String productName) {
+		searchField.sendKeys(productName);
+	}
+	
+	public void clickOnSearchButton() {
+		searchButton.click();
+	}
+	
+	public boolean displayStatusOfValidProduct() {
+		return validProduct.isDisplayed();
+	}
+	
+	public String noProductThatMatchTheCriteriaText() {
+		return noProductThatMatchTheCriteria.getText();
 	}
 
 }

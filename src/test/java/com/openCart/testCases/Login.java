@@ -21,6 +21,9 @@ public class Login extends Base {
 	HomePage homePage;
 
 	LoginPage loginPage;
+	
+	AccountPage accountPage;
+	
 
 	public Login() {
 		super();
@@ -30,6 +33,8 @@ public class Login extends Base {
 	public void setUp() {
 
 		driver = initializeBrowserWithURL(prop.getProperty("browserName"));
+		
+		homePage = new HomePage(driver);
 	}
 
 	@AfterMethod
@@ -41,12 +46,9 @@ public class Login extends Base {
 	@Test(priority = 1, dataProvider = "testData")
 	public void TC_LF_001(String email, String password) {
 
-		homePage = new HomePage(driver);
 		loginPage = homePage.navigateToLogin();
 
-		loginPage.login(email, password);
-
-		AccountPage accountPage = new AccountPage(driver);
+		accountPage = loginPage.login(email, password);
 
 		Assert.assertTrue(accountPage.displayStatusOfEditYourAccount(),
 				"Edit your account information is not displayed");
@@ -56,7 +58,6 @@ public class Login extends Base {
 	@Test(priority = 2)
 	public void TC_LF_002() {
 
-		homePage = new HomePage(driver);
 		loginPage = homePage.navigateToLogin();
 
 		loginPage.login(Utility.randomEmailString(), dataProp.getProperty("invalidPassword"));
@@ -70,7 +71,6 @@ public class Login extends Base {
 	@Test(priority = 3)
 	public void TC_LF_003() {
 
-		homePage = new HomePage(driver);
 		loginPage = homePage.navigateToLogin();
 
 		loginPage.login(dataProp.getProperty("invalidEmail"), prop.getProperty("validPassword"));
@@ -84,7 +84,6 @@ public class Login extends Base {
 	@Test(priority = 4)
 	public void TC_LF_004() {
 
-		homePage = new HomePage(driver);
 		loginPage = homePage.navigateToLogin();
 
 		loginPage.login(prop.getProperty("validEmail"), dataProp.getProperty("invalidPassword"));
@@ -94,10 +93,9 @@ public class Login extends Base {
 				"Expected Warning Message is not displayed");
 	}
 
-	@Test
+	@Test(priority=5)
 	public void TC_LF_005() {
 
-		homePage = new HomePage(driver);
 		loginPage = homePage.navigateToLogin();
 
 		loginPage.clickOnLoginButton();
@@ -108,24 +106,22 @@ public class Login extends Base {
 
 	}
 
-	@Test
+	@Test(priority=6)
 	public void TC_LF_006() {
-		homePage = new HomePage(driver);
+		
 		loginPage = homePage.navigateToLogin();
 
 		Assert.assertTrue(loginPage.displayStatusOfForgottenPasswordOption());
 
-		loginPage.clickOnForgottenPasswordOption();
-
-		ForgottenPasswordPage forgottenPasswordPage = new ForgottenPasswordPage(driver);
+		ForgottenPasswordPage forgottenPasswordPage =loginPage.clickOnForgottenPasswordOption();
 
 		Assert.assertTrue(forgottenPasswordPage.displayStatusOfForgotYourPasswordHeading());
 
 	}
 
-	@Test
+	@Test(priority=7)
 	public void TC_LF_008() {
-		homePage = new HomePage(driver);
+
 		loginPage = homePage.navigateToLogin();
 
 		Assert.assertEquals(loginPage.emailPlaceHolderType(), "E-Mail Address",
@@ -133,10 +129,9 @@ public class Login extends Base {
 		Assert.assertEquals(loginPage.passwordPlaceHolderType(), "Password", "Password place holder is mis match");
 	}
 
-	@Test
+	@Test(priority=8)
 	public void TC_LF_013() throws InterruptedException {
 
-		homePage = new HomePage(driver);
 		loginPage = homePage.navigateToLogin();
 
 		loginPage.enterPassword(dataProp.getProperty("invalidPassword"));

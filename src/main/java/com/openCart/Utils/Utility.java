@@ -21,22 +21,22 @@ public class Utility {
 
 	}
 	
-	public void getTestDataFromExcel() throws IOException {
+	public void getTestDataFromExcel(String TestData1) throws IOException {
 		
 		File file = new File("C:\\Users\\Ajay\\openCart\\openCart\\src\\test\\java\\src\\test\\resources\\DataDrivenTestData.xlsx");
 		
 		FileInputStream fis= new FileInputStream(file);
 		
 		XSSFWorkbook book= new XSSFWorkbook(fis);
-		XSSFSheet sheet = book.getSheet("TestData1");
-		int row=sheet.getLastRowNum();
-		int col =sheet.getRow(0).getLastCellNum();
+		XSSFSheet sheet = book.getSheet(TestData1);
+		int rows=sheet.getLastRowNum();
+		int cols =sheet.getRow(0).getLastCellNum();
 		
-		Object[][] data= new Object[row][col]; 
+		Object[][] data= new Object[rows][cols]; 
 		
-		for(int i=0; i<row; i++) {
-			for(int j=0; j<col; j++) {
-				data= new Object[i][j];
+		for(int i=0; i<rows; i++) {
+			for(int j=0; j<cols; j++) {
+				data[i][j]=new Object[rows][cols];
 			}
 		}
 		
