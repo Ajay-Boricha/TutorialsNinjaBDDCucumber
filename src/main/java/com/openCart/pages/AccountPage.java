@@ -17,11 +17,18 @@ public class AccountPage {
 	//object 
 	
 	@FindBy(xpath="//a[normalize-space()='Edit your account information']")
-	WebElement editYourAccountInfoOption;
+	private WebElement editYourAccountInfoOption;
+	
+	
+	
+	
+	//actions
 	
 	public boolean displayStatusOfEditYourAccount() {
 		boolean displayStatusOfAccount=editYourAccountInfoOption.isDisplayed();
 		return displayStatusOfAccount;
 	}
+	
 
+	
 }

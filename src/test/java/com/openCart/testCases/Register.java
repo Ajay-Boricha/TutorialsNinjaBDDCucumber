@@ -8,6 +8,8 @@ import org.testng.annotations.Test;
 
 import com.openCart.Base.Base;
 import com.openCart.Utils.Utility;
+import com.openCart.pages.AccountPage;
+import com.openCart.pages.AccountSuccessPage;
 import com.openCart.pages.HomePage;
 import com.openCart.pages.RegisterPage;
 
@@ -18,6 +20,10 @@ public class Register extends Base {
 	RegisterPage registerPage;
 
 	HomePage homePage;
+
+	AccountSuccessPage accountSuccessPage;
+
+	AccountPage accountPage;
 
 	public Register() {
 		super();
@@ -42,12 +48,29 @@ public class Register extends Base {
 
 		registerPage = homePage.navigateToRegister();
 
-		registerPage.enterAndSubmitAllMandatoryField(dataProp.getProperty("firstName"),
+		accountSuccessPage = registerPage.enterAndSubmitAllMandatoryField(dataProp.getProperty("firstName"),
 				dataProp.getProperty("lastName"), Utility.randomEmailString(), dataProp.getProperty("telephoneNumber"),
 				dataProp.getProperty("password"));
 
-		Assert.assertEquals(registerPage.accountSuccessHeadingText(),
+		Assert.assertEquals(accountSuccessPage.accountSuccessHeadingText(),
 				dataProp.getProperty("accountSuccessfullyCreatedHeading"));
+
+	}
+
+	@Test(priority = 3)
+	public void TC_RF_003() {
+
+		registerPage = homePage.navigateToRegister();
+		accountSuccessPage = registerPage.enterAndSubmitAllField(dataProp.getProperty("firstName"),
+				dataProp.getProperty("lastName"), Utility.randomEmailString(), dataProp.getProperty("telephoneNumber"),
+				dataProp.getProperty("password"));
+
+		Assert.assertEquals(accountSuccessPage.accountSuccessHeadingText(),
+				dataProp.getProperty("accountSuccessfullyCreatedHeading"));
+
+		accountPage = accountSuccessPage.clickOnContinueButton();
+
+		Assert.assertTrue(accountPage.displayStatusOfEditYourAccount());
 
 	}
 
