@@ -16,6 +16,10 @@ public class LoginPage {
 	}
 
 	// object
+	
+	@FindBy(xpath="//a[normalize-space()='Continue']")
+	private WebElement continueButton;
+	
 	@FindBy(xpath = "//input[@id='input-email']")
 	private WebElement enterEmail;
 
@@ -30,6 +34,9 @@ public class LoginPage {
 	
 	@FindBy(xpath="//div[@class='form-group']//a[normalize-space()='Forgotten Password']")
 	private WebElement forgottenPasswordButton;
+	
+	@FindBy(xpath="//a[@class='list-group-item'][normalize-space()='Register']")
+	private WebElement registerLink;
 
 	// Actions
 	public void enterEmail(String emailText) {
@@ -56,9 +63,17 @@ public class LoginPage {
 		loginButton.click();
 	}
 	
+	public void clickContinueButton() {
+		continueButton.click();
+	}
+	
 	public ForgottenPasswordPage clickOnForgottenPasswordOption() {
 		forgottenPasswordButton.click();
 		return new ForgottenPasswordPage(driver);
+	}
+	
+	public void clickRegisterLink() {
+		registerLink.click();
 	}
 	
 	public String noMatchForEmailAndPasswordText() {

@@ -1,6 +1,5 @@
 package com.openCart.testCases;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -13,7 +12,7 @@ import com.openCart.pages.HomePage;
 public class Search extends Base {
 
 	WebDriver driver;
-	
+
 	HomePage homePage;
 
 	public Search() {
@@ -24,8 +23,8 @@ public class Search extends Base {
 	public void setUp() {
 
 		driver = initializeBrowserWithURL(prop.getProperty("browserName"));
-		
-		homePage= new HomePage(driver);
+
+		homePage = new HomePage(driver);
 
 	}
 
@@ -40,8 +39,7 @@ public class Search extends Base {
 		homePage.enterSearch("iMac");
 		homePage.clickOnSearchButton();
 
-		Assert.assertTrue(homePage.displayStatusOfValidProduct(),
-				"valid search product is not displayed");
+		Assert.assertTrue(homePage.displayStatusOfValidProduct(), "valid search product is not displayed");
 
 	}
 
@@ -50,9 +48,9 @@ public class Search extends Base {
 
 		homePage.enterSearch("Fitbit");
 		homePage.clickOnSearchButton();
-		
-		Assert.assertEquals(homePage.noProductThatMatchTheCriteriaText(), "There is no product that matches the search criteria.",
-				"Expected product message is not displayed");
+
+		Assert.assertEquals(homePage.noProductThatMatchTheCriteriaText(),
+				"There is no product that matches the search criteria.", "Expected product message is not displayed");
 
 	}
 

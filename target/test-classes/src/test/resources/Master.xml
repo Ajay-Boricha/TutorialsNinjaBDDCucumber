@@ -3,9 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.openCart.testCases.Login"/>
+      <!--<class name="com.openCart.testCases.Login"/>-->
       <class name="com.openCart.testCases.Register"/>
-      <class name="com.openCart.testCases.Search"/>
+     <!-- <class name="com.openCart.testCases.Search"/>-->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

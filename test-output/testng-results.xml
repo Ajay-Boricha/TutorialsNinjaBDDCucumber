@@ -1,229 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="15" passed="15" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-14T11:34:44 IST" name="Suite" finished-at="2023-12-14T11:36:24 IST" duration-ms="99979">
+  <suite started-at="2023-12-15T11:52:53 IST" name="Suite" finished-at="2023-12-15T11:54:03 IST" duration-ms="69326">
     <groups>
     </groups>
-    <test started-at="2023-12-14T11:34:44 IST" name="Test" finished-at="2023-12-14T11:36:24 IST" duration-ms="99979">
-      <class name="com.openCart.testCases.Search">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Search@77888435]" started-at="2023-12-14T11:36:11 IST" name="setUp" finished-at="2023-12-14T11:36:16 IST" duration-ms="4661" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_SF_002()[pri:0, instance:com.openCart.testCases.Search@77888435]" started-at="2023-12-14T11:36:16 IST" name="TC_SF_002" finished-at="2023-12-14T11:36:17 IST" duration-ms="439" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_SF_002 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Search@77888435]" started-at="2023-12-14T11:36:17 IST" name="tearDown" finished-at="2023-12-14T11:36:17 IST" duration-ms="854" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Search@77888435]" started-at="2023-12-14T11:36:17 IST" name="setUp" finished-at="2023-12-14T11:36:22 IST" duration-ms="4798" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_SF_001()[pri:1, instance:com.openCart.testCases.Search@77888435]" started-at="2023-12-14T11:36:22 IST" name="TC_SF_001" finished-at="2023-12-14T11:36:23 IST" duration-ms="642" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_SF_001 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Search@77888435]" started-at="2023-12-14T11:36:23 IST" name="tearDown" finished-at="2023-12-14T11:36:24 IST" duration-ms="1009" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.openCart.testCases.Search -->
-      <class name="com.openCart.testCases.Login">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:34:44 IST" name="setUp" finished-at="2023-12-14T11:34:49 IST" duration-ms="5243" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_001(java.lang.String,java.lang.String)[pri:1, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:34:49 IST" name="TC_LF_001" data-provider="testData" finished-at="2023-12-14T11:34:50 IST" duration-ms="1094" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[bajay1@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[12345]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_001 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:34:50 IST" name="tearDown" finished-at="2023-12-14T11:34:51 IST" duration-ms="891" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:34:51 IST" name="setUp" finished-at="2023-12-14T11:34:56 IST" duration-ms="4470" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_001(java.lang.String,java.lang.String)[pri:1, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:34:56 IST" name="TC_LF_001" data-provider="testData" finished-at="2023-12-14T11:34:57 IST" duration-ms="1088" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[bajay2@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[123456]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_001 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:34:57 IST" name="tearDown" finished-at="2023-12-14T11:34:57 IST" duration-ms="778" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:34:57 IST" name="setUp" finished-at="2023-12-14T11:35:02 IST" duration-ms="4336" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_001(java.lang.String,java.lang.String)[pri:1, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:02 IST" name="TC_LF_001" data-provider="testData" finished-at="2023-12-14T11:35:03 IST" duration-ms="1135" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[bajay3@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[123456]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_001 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:03 IST" name="tearDown" finished-at="2023-12-14T11:35:04 IST" duration-ms="725" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:04 IST" name="setUp" finished-at="2023-12-14T11:35:08 IST" duration-ms="4300" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_002()[pri:2, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:08 IST" name="TC_LF_002" finished-at="2023-12-14T11:35:09 IST" duration-ms="974" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_002 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:09 IST" name="tearDown" finished-at="2023-12-14T11:35:10 IST" duration-ms="997" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:10 IST" name="setUp" finished-at="2023-12-14T11:35:15 IST" duration-ms="4878" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_003()[pri:3, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:15 IST" name="TC_LF_003" finished-at="2023-12-14T11:35:16 IST" duration-ms="987" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_003 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:16 IST" name="tearDown" finished-at="2023-12-14T11:35:17 IST" duration-ms="890" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:17 IST" name="setUp" finished-at="2023-12-14T11:35:22 IST" duration-ms="5599" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_004()[pri:4, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:22 IST" name="TC_LF_004" finished-at="2023-12-14T11:35:23 IST" duration-ms="1025" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_004 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:23 IST" name="tearDown" finished-at="2023-12-14T11:35:24 IST" duration-ms="820" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:24 IST" name="setUp" finished-at="2023-12-14T11:35:29 IST" duration-ms="4627" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_005()[pri:5, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:29 IST" name="TC_LF_005" finished-at="2023-12-14T11:35:30 IST" duration-ms="902" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_005 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:30 IST" name="tearDown" finished-at="2023-12-14T11:35:31 IST" duration-ms="897" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:31 IST" name="setUp" finished-at="2023-12-14T11:35:35 IST" duration-ms="4693" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_006()[pri:6, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:35 IST" name="TC_LF_006" finished-at="2023-12-14T11:35:36 IST" duration-ms="807" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_006 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:36 IST" name="tearDown" finished-at="2023-12-14T11:35:37 IST" duration-ms="855" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:37 IST" name="setUp" finished-at="2023-12-14T11:35:42 IST" duration-ms="4992" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_008()[pri:7, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:42 IST" name="TC_LF_008" finished-at="2023-12-14T11:35:43 IST" duration-ms="635" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_008 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:43 IST" name="tearDown" finished-at="2023-12-14T11:35:43 IST" duration-ms="852" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:43 IST" name="setUp" finished-at="2023-12-14T11:35:48 IST" duration-ms="4564" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_LF_013()[pri:8, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:48 IST" name="TC_LF_013" finished-at="2023-12-14T11:35:49 IST" duration-ms="583" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_LF_013 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Login@55183b20]" started-at="2023-12-14T11:35:49 IST" name="tearDown" finished-at="2023-12-14T11:35:49 IST" duration-ms="907" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.openCart.testCases.Login -->
+    <test started-at="2023-12-15T11:52:53 IST" name="Test" finished-at="2023-12-15T11:54:03 IST" duration-ms="69326">
       <class name="com.openCart.testCases.Register">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@14cd1699]" started-at="2023-12-14T11:35:49 IST" name="setUp" finished-at="2023-12-14T11:35:54 IST" duration-ms="4525" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:52:53 IST" name="setUp" finished-at="2023-12-15T11:52:59 IST" duration-ms="5248" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_001()[pri:1, instance:com.openCart.testCases.Register@14cd1699]" started-at="2023-12-14T11:35:54 IST" name="TC_RF_001" finished-at="2023-12-14T11:35:56 IST" duration-ms="1613" status="PASS">
+        <test-method signature="TC_RF_009()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:52:59 IST" name="TC_RF_009" finished-at="2023-12-15T11:53:01 IST" duration-ms="1953" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_RF_009 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:01 IST" name="tearDown" finished-at="2023-12-15T11:53:01 IST" duration-ms="874" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:01 IST" name="setUp" finished-at="2023-12-15T11:53:06 IST" duration-ms="4701" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_RF_001()[pri:1, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:06 IST" name="TC_RF_001" finished-at="2023-12-15T11:53:08 IST" duration-ms="1772" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_RF_001 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@14cd1699]" started-at="2023-12-14T11:35:56 IST" name="tearDown" finished-at="2023-12-14T11:35:56 IST" duration-ms="842" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:08 IST" name="tearDown" finished-at="2023-12-15T11:53:09 IST" duration-ms="876" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@14cd1699]" started-at="2023-12-14T11:35:56 IST" name="setUp" finished-at="2023-12-14T11:36:01 IST" duration-ms="5015" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:09 IST" name="setUp" finished-at="2023-12-15T11:53:14 IST" duration-ms="5148" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_004()[pri:2, instance:com.openCart.testCases.Register@14cd1699]" started-at="2023-12-14T11:36:01 IST" name="TC_RF_004" finished-at="2023-12-14T11:36:03 IST" duration-ms="1262" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_RF_004 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@14cd1699]" started-at="2023-12-14T11:36:03 IST" name="tearDown" finished-at="2023-12-14T11:36:04 IST" duration-ms="835" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@14cd1699]" started-at="2023-12-14T11:36:04 IST" name="setUp" finished-at="2023-12-14T11:36:08 IST" duration-ms="4885" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_003()[pri:3, instance:com.openCart.testCases.Register@14cd1699]" started-at="2023-12-14T11:36:08 IST" name="TC_RF_003" finished-at="2023-12-14T11:36:11 IST" duration-ms="2142" status="PASS">
+        <test-method signature="TC_RF_003()[pri:3, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:14 IST" name="TC_RF_003" finished-at="2023-12-15T11:53:16 IST" duration-ms="2190" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_RF_003 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@14cd1699]" started-at="2023-12-14T11:36:11 IST" name="tearDown" finished-at="2023-12-14T11:36:11 IST" duration-ms="821" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:16 IST" name="tearDown" finished-at="2023-12-15T11:53:17 IST" duration-ms="848" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:17 IST" name="setUp" finished-at="2023-12-15T11:53:21 IST" duration-ms="4378" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_RF_004()[pri:4, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:21 IST" name="TC_RF_004" finished-at="2023-12-15T11:53:23 IST" duration-ms="1249" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_RF_004 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:23 IST" name="tearDown" finished-at="2023-12-15T11:53:24 IST" duration-ms="919" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:24 IST" name="setUp" finished-at="2023-12-15T11:53:28 IST" duration-ms="4777" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_RF_005()[pri:5, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:28 IST" name="TC_RF_005" finished-at="2023-12-15T11:53:31 IST" duration-ms="2465" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_RF_005 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:31 IST" name="tearDown" finished-at="2023-12-15T11:53:32 IST" duration-ms="876" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:32 IST" name="setUp" finished-at="2023-12-15T11:53:37 IST" duration-ms="4872" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_RF_006()[pri:6, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:37 IST" name="TC_RF_006" finished-at="2023-12-15T11:53:39 IST" duration-ms="2503" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_RF_006 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:39 IST" name="tearDown" finished-at="2023-12-15T11:53:40 IST" duration-ms="831" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:40 IST" name="setUp" finished-at="2023-12-15T11:53:44 IST" duration-ms="4554" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_RF_007()[pri:7, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:44 IST" name="TC_RF_007" finished-at="2023-12-15T11:53:47 IST" duration-ms="2234" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_RF_007 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:47 IST" name="tearDown" finished-at="2023-12-15T11:53:48 IST" duration-ms="846" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:48 IST" name="setUp" finished-at="2023-12-15T11:53:52 IST" duration-ms="4507" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="TC_RF_008()[pri:8, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:52 IST" name="TC_RF_008" finished-at="2023-12-15T11:54:02 IST" duration-ms="9760" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_RF_008 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:54:02 IST" name="tearDown" finished-at="2023-12-15T11:54:03 IST" duration-ms="887" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

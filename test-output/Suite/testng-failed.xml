@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Test(failed)">
+<suite thread-count="2" parallel="methods" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="methods" name="Test(failed)">
     <classes>
-      <class name="com.openCart.testCases.Login">
+      <class name="com.openCart.testCases.Register">
         <methods>
+          <include name="TC_RF_006"/>
           <include name="setUp"/>
-          <include name="TC_LF_001"/>
+          <include name="TC_RF_007"/>
+          <include name="TC_RF_008"/>
+          <include name="TC_RF_009"/>
           <include name="tearDown"/>
+          <include name="TC_RF_003"/>
+          <include name="TC_RF_004"/>
+          <include name="TC_RF_005"/>
+          <include name="TC_RF_001"/>
         </methods>
-      </class> <!-- com.openCart.testCases.Login -->
+      </class> <!-- com.openCart.testCases.Register -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
