@@ -39,11 +39,12 @@ public class Search extends Base {
 		homePage.enterSearch("iMac");
 		homePage.clickOnSearchButton();
 
-		Assert.assertTrue(homePage.displayStatusOfValidProduct(), "valid search product is not displayed");
+		//Assert.assertTrue(homePage.displayStatusOfValidProduct(), "valid search product is not displayed");
 
+		Assert.fail();
 	}
 
-	@Test
+	@Test(priority=2, dependsOnMethods= {"TC_SF_001"})
 	public void TC_SF_002() {
 
 		homePage.enterSearch("Fitbit");

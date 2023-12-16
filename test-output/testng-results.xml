@@ -1,109 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="0" failed="1" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-15T11:52:53 IST" name="Suite" finished-at="2023-12-15T11:54:03 IST" duration-ms="69326">
+  <suite started-at="2023-12-16T07:53:55 IST" name="Suite" finished-at="2023-12-16T07:54:17 IST" duration-ms="21877">
     <groups>
     </groups>
-    <test started-at="2023-12-15T11:52:53 IST" name="Test" finished-at="2023-12-15T11:54:03 IST" duration-ms="69326">
-      <class name="com.openCart.testCases.Register">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:52:53 IST" name="setUp" finished-at="2023-12-15T11:52:59 IST" duration-ms="5248" status="PASS">
+    <test started-at="2023-12-16T07:53:55 IST" name="Test" finished-at="2023-12-16T07:54:17 IST" duration-ms="21877">
+      <class name="com.openCart.testCases.Search">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Search@223d2c72]" started-at="2023-12-16T07:53:55 IST" name="setUp" finished-at="2023-12-16T07:54:15 IST" duration-ms="19225" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_009()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:52:59 IST" name="TC_RF_009" finished-at="2023-12-15T11:53:01 IST" duration-ms="1953" status="PASS">
+        <test-method signature="TC_SF_001()[pri:1, instance:com.openCart.testCases.Search@223d2c72]" started-at="2023-12-16T07:54:15 IST" name="TC_SF_001" finished-at="2023-12-16T07:54:16 IST" duration-ms="1697" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: null
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.fail(Assert.java:116)
+at com.openCart.testCases.Search.TC_SF_001(Search.java:44)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_RF_009 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:01 IST" name="tearDown" finished-at="2023-12-15T11:53:01 IST" duration-ms="874" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:01 IST" name="setUp" finished-at="2023-12-15T11:53:06 IST" duration-ms="4701" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_001()[pri:1, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:06 IST" name="TC_RF_001" finished-at="2023-12-15T11:53:08 IST" duration-ms="1772" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_RF_001 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:08 IST" name="tearDown" finished-at="2023-12-15T11:53:09 IST" duration-ms="876" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:09 IST" name="setUp" finished-at="2023-12-15T11:53:14 IST" duration-ms="5148" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_003()[pri:3, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:14 IST" name="TC_RF_003" finished-at="2023-12-15T11:53:16 IST" duration-ms="2190" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_RF_003 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:16 IST" name="tearDown" finished-at="2023-12-15T11:53:17 IST" duration-ms="848" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:17 IST" name="setUp" finished-at="2023-12-15T11:53:21 IST" duration-ms="4378" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_004()[pri:4, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:21 IST" name="TC_RF_004" finished-at="2023-12-15T11:53:23 IST" duration-ms="1249" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_RF_004 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:23 IST" name="tearDown" finished-at="2023-12-15T11:53:24 IST" duration-ms="919" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:24 IST" name="setUp" finished-at="2023-12-15T11:53:28 IST" duration-ms="4777" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_005()[pri:5, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:28 IST" name="TC_RF_005" finished-at="2023-12-15T11:53:31 IST" duration-ms="2465" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_RF_005 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:31 IST" name="tearDown" finished-at="2023-12-15T11:53:32 IST" duration-ms="876" status="PASS">
+        </test-method> <!-- TC_SF_001 -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Search@223d2c72]" started-at="2023-12-16T07:54:16 IST" name="tearDown" finished-at="2023-12-16T07:54:17 IST" duration-ms="903" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:32 IST" name="setUp" finished-at="2023-12-15T11:53:37 IST" duration-ms="4872" status="PASS">
+        <test-method signature="TC_SF_002()[pri:2, instance:com.openCart.testCases.Search@223d2c72]" started-at="2023-12-16T07:54:17 IST" name="TC_SF_002" finished-at="2023-12-16T07:54:17 IST" depends-on-methods="com.openCart.testCases.Search.TC_SF_001" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method com.openCart.testCases.Search.TC_SF_002() on instance com.openCart.testCases.Search@223d2c72 depends on not successfully finished methods 
+[com.openCart.testCases.Search.TC_SF_001() on instance com.openCart.testCases.Search@223d2c72]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method com.openCart.testCases.Search.TC_SF_002() on instance com.openCart.testCases.Search@223d2c72 depends on not successfully finished methods 
+[com.openCart.testCases.Search.TC_SF_001() on instance com.openCart.testCases.Search@223d2c72]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:156)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_006()[pri:6, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:37 IST" name="TC_RF_006" finished-at="2023-12-15T11:53:39 IST" duration-ms="2503" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_RF_006 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:39 IST" name="tearDown" finished-at="2023-12-15T11:53:40 IST" duration-ms="831" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:40 IST" name="setUp" finished-at="2023-12-15T11:53:44 IST" duration-ms="4554" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_007()[pri:7, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:44 IST" name="TC_RF_007" finished-at="2023-12-15T11:53:47 IST" duration-ms="2234" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_RF_007 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:47 IST" name="tearDown" finished-at="2023-12-15T11:53:48 IST" duration-ms="846" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:48 IST" name="setUp" finished-at="2023-12-15T11:53:52 IST" duration-ms="4507" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="TC_RF_008()[pri:8, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:53:52 IST" name="TC_RF_008" finished-at="2023-12-15T11:54:02 IST" duration-ms="9760" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TC_RF_008 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.openCart.testCases.Register@10e31a9a]" started-at="2023-12-15T11:54:02 IST" name="tearDown" finished-at="2023-12-15T11:54:03 IST" duration-ms="887" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.openCart.testCases.Register -->
+        </test-method> <!-- TC_SF_002 -->
+      </class> <!-- com.openCart.testCases.Search -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
