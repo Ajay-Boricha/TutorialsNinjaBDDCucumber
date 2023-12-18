@@ -17,7 +17,7 @@ import com.openCart.pages.RegisterPage;
 
 public class Register extends Base {
 
-	WebDriver driver;
+	public WebDriver driver;
 
 	RegisterPage registerPage;
 
@@ -187,7 +187,7 @@ public class Register extends Base {
 
 	}
 
-	@Test
+	@Test(priority=9)
 	public void TC_RF_009() {
 		registerPage = homePage.navigateToRegister();
 
@@ -213,8 +213,24 @@ public class Register extends Base {
 				"pavanol", dataProp.getProperty("telephoneNumber"),
 				prop.getProperty("validPassword"), prop.getProperty("validPassword"));
 
+		System.out.println(registerPage.validationMessageOfemail());
 		
+	}
+	
+	@Test (priority=13)
+	public void TC_RF_013() {
+
+		registerPage = homePage.navigateToRegister();
+
+		Assert.assertTrue(registerPage.verifyPlaceHolder(), "Validation of PlaceHolder is Failed");
+	}
+	
+	//@Test(priority=14)
+	public void TC_RF_014() {
 		
+		registerPage = homePage.navigateToRegister();		
+		registerPage.validateAstrick();
+	
 	}
 
 }

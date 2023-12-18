@@ -24,7 +24,7 @@ public class ExtentReport {
 
 		Properties prop = new Properties();
 		File file1 = new File(
-				System.getProperty("user.dir") + "src\\main\\java\\com\\openCart\\Config\\config.properties");
+				System.getProperty("user.dir") + "\\src\\main\\java\\com\\openCart\\Config\\config.properties");
 		try {
 			FileInputStream fis = new FileInputStream(file1);
 			prop.load(fis);

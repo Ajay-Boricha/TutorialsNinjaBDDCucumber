@@ -16,7 +16,7 @@ import com.openCart.pages.LoginPage;
 
 public class Login extends Base {
 
-	WebDriver driver;
+	public WebDriver driver;
 
 	HomePage homePage;
 

@@ -11,7 +11,7 @@ import com.openCart.pages.HomePage;
 
 public class Search extends Base {
 
-	WebDriver driver;
+	public WebDriver driver;
 
 	HomePage homePage;
 
@@ -39,12 +39,11 @@ public class Search extends Base {
 		homePage.enterSearch("iMac");
 		homePage.clickOnSearchButton();
 
-		//Assert.assertTrue(homePage.displayStatusOfValidProduct(), "valid search product is not displayed");
+		Assert.assertTrue(homePage.displayStatusOfValidProduct(), "valid search product is not displayed");
 
-		Assert.fail();
 	}
 
-	@Test(priority=2, dependsOnMethods= {"TC_SF_001"})
+	@Test(priority=2)
 	public void TC_SF_002() {
 
 		homePage.enterSearch("Fitbit");

@@ -16,8 +16,8 @@ public class RegisterPage {
 	}
 
 	// object
-	
-	@FindBy(xpath="//h1[normalize-space()='Register Account']")
+
+	@FindBy(xpath = "//h1[normalize-space()='Register Account']")
 	private WebElement registerAccountHeading;
 
 	@FindBy(xpath = "//input[@id='input-firstname']")
@@ -37,11 +37,11 @@ public class RegisterPage {
 
 	@FindBy(xpath = "//input[@id='input-confirm']")
 	private WebElement confirmPasswordField;
-	
-	@FindBy(xpath="//label[normalize-space()='Yes']")
+
+	@FindBy(xpath = "//label[normalize-space()='Yes']")
 	private WebElement yesRadioButton;
-	
-	@FindBy(xpath="//input[@value='0']")
+
+	@FindBy(xpath = "//input[@value='0']")
 	private WebElement noRadioButton;
 
 	@FindBy(xpath = "//input[@name='agree']")
@@ -49,32 +49,34 @@ public class RegisterPage {
 
 	@FindBy(xpath = "//input[@value='Continue']")
 	private WebElement continueButton;
-	
-	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")
+
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement privacyPolicyWarningMessage;
-	
-	@FindBy(xpath="//div[contains(text(),'First Name must be between 1 and 32 characters!')]")
+
+	@FindBy(xpath = "//div[contains(text(),'First Name must be between 1 and 32 characters!')]")
 	private WebElement firstNameWarningMessage;
 
-	@FindBy(xpath="//div[contains(text(),'Last Name must be between 1 and 32 characters!')]")
+	@FindBy(xpath = "//div[contains(text(),'Last Name must be between 1 and 32 characters!')]")
 	private WebElement lastNameWarningMessage;
-	
-	@FindBy(xpath="//div[contains(text(),'E-Mail Address does not appear to be valid!')]")
+
+	@FindBy(xpath = "//div[contains(text(),'E-Mail Address does not appear to be valid!')]")
 	private WebElement emailWarningMessage;
-	
-	@FindBy(xpath="//div[contains(text(),'Telephone must be between 3 and 32 characters!')]")
+
+	@FindBy(xpath = "//div[contains(text(),'Telephone must be between 3 and 32 characters!')]")
 	private WebElement telePhoneWarningMessage;
-	
-	@FindBy(xpath="//div[contains(text(),'Password must be between 4 and 20 characters!')]")
+
+	@FindBy(xpath = "//div[contains(text(),'Password must be between 4 and 20 characters!')]")
 	private WebElement passwordWarningMessage;
-	
-	@FindBy(xpath="//div[@class='text-danger']")
+
+	@FindBy(xpath = "//div[@class='text-danger']")
 	private WebElement passwordDoesNotMatchWarningMessage;
-	
-	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']")
+
+	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement emailIsAlreadyRegisteredWarningMessage;
-	
-	
+
+	@FindBy(xpath = "//label[normalize-space()='First Name']")
+	private WebElement firstNameLabel;
+
 	// action
 
 	public void enterFirstName(String firstNameTest) {
@@ -100,11 +102,11 @@ public class RegisterPage {
 	public void enterConfirmPassword(String passwordtext) {
 		confirmPasswordField.sendKeys(passwordtext);
 	}
-	
+
 	public void selectYesRadioButtonforNewsletter() {
 		yesRadioButton.click();
 	}
-	
+
 	public void selectNoRadioButtonforNewsletter() {
 		noRadioButton.click();
 	}
@@ -116,45 +118,49 @@ public class RegisterPage {
 	public void clickOnContinueButton() {
 		continueButton.click();
 	}
-	
+
 	public String privacyPolicyWarningMessageText() {
 		return privacyPolicyWarningMessage.getText();
 	}
-	
+
 	public String firstNameWarningMessageText() {
 		return firstNameWarningMessage.getText();
 	}
-	
+
 	public String lastNameWarningMessageText() {
 		return lastNameWarningMessage.getText();
 	}
-	
+
 	public String emailWarningMessageText() {
 		return emailWarningMessage.getText();
 	}
-	
+
+	public String validationMessageOfemail() {
+		return emailField.getAttribute("validationMessage");
+	}
+
 	public String telephoneWarningMessageText() {
 		return telePhoneWarningMessage.getText();
 	}
-	
+
 	public String passwordWarningMessageText() {
 		return passwordWarningMessage.getText();
 	}
-	
+
 	public boolean displayStatusOfRegisterAccountHeading() {
 		return registerAccountHeading.isDisplayed();
 	}
-	
+
 	public boolean displayStatusOfPasswordDoesNotMatchWarningMessage() {
 		return passwordDoesNotMatchWarningMessage.isDisplayed();
 	}
-	
+
 	public boolean displayStatusOfEmailIsAlreadyRegisteredWarningMessage() {
 		return emailIsAlreadyRegisteredWarningMessage.isDisplayed();
 	}
 
-	public AccountSuccessPage enterAndSubmitAllMandatoryField(String firstNameTest, String lastNameText, String emailText,
-			String telephoneText, String passwordtext) {
+	public AccountSuccessPage enterAndSubmitAllMandatoryField(String firstNameTest, String lastNameText,
+			String emailText, String telephoneText, String passwordtext) {
 		firstNameField.sendKeys(firstNameTest);
 		lastNameField.sendKeys(lastNameText);
 		emailField.sendKeys(emailText);
@@ -163,57 +169,80 @@ public class RegisterPage {
 		confirmPasswordField.sendKeys(passwordtext);
 		pravicyPolicy.click();
 		continueButton.click();
+
+		return new AccountSuccessPage(driver);
+
+	}
+
+	public AccountSuccessPage enterAndSubmitAllMandatoryField(String firstNameTest, String lastNameText,
+			String emailText, String telephoneText, String passwordtext, String incorrectPasswordText) {
 		
-		return new AccountSuccessPage(driver);
-
-	}
-	
-	public AccountSuccessPage enterAndSubmitAllField(String firstNameTest, String lastNameText, String emailText,
-			String telephoneText, String passwordtext) {
-		firstNameField.sendKeys(firstNameTest);
-		lastNameField.sendKeys(lastNameText);
-		emailField.sendKeys(emailText);
-		telephoneField.sendKeys(telephoneText);
-		passwordField.sendKeys(passwordtext);
-		confirmPasswordField.sendKeys(passwordtext);
-		yesRadioButton.click();
-		pravicyPolicy.click();
-		continueButton.click();
-
-		return new AccountSuccessPage(driver);
-	}
-	
-	public AccountSuccessPage enterAndSubmitAllFieldWithNoRadioButton(String firstNameTest, String lastNameText, String emailText,
-			String telephoneText, String passwordtext) {
-		firstNameField.sendKeys(firstNameTest);
-		lastNameField.sendKeys(lastNameText);
-		emailField.sendKeys(emailText);
-		telephoneField.sendKeys(telephoneText);
-		passwordField.sendKeys(passwordtext);
-		confirmPasswordField.sendKeys(passwordtext);
-		noRadioButton.click();		
-		pravicyPolicy.click();
-		continueButton.click();
-		
-		return new AccountSuccessPage(driver);
-
-	}
-	
-	public AccountSuccessPage enterAndSubmitAllField(String firstNameTest, String lastNameText, String emailText,
-			String telephoneText, String passwordtext, String incorrectPasswordText) {
 		firstNameField.sendKeys(firstNameTest);
 		lastNameField.sendKeys(lastNameText);
 		emailField.sendKeys(emailText);
 		telephoneField.sendKeys(telephoneText);
 		passwordField.sendKeys(passwordtext);
 		confirmPasswordField.sendKeys(incorrectPasswordText);
-		yesRadioButton.click();
 		pravicyPolicy.click();
 		continueButton.click();
 
 		return new AccountSuccessPage(driver);
-	}
-	
 
+	}
+
+	public AccountSuccessPage enterAndSubmitAllField(String firstNameTest, String lastNameText, String emailText,
+			String telephoneText, String passwordtext) {
+
+		yesRadioButton.click();
+
+		enterAndSubmitAllMandatoryField(firstNameTest, lastNameText, emailText, telephoneText, passwordtext);
+
+		return new AccountSuccessPage(driver);
+	}
+
+	public AccountSuccessPage enterAndSubmitAllFieldWithNoRadioButton(String firstNameTest, String lastNameText,
+			String emailText, String telephoneText, String passwordtext) {
+
+		noRadioButton.click();
+
+		enterAndSubmitAllMandatoryField(firstNameTest, lastNameText, emailText, telephoneText, passwordtext);
+
+		return new AccountSuccessPage(driver);
+
+	}
+
+	public AccountSuccessPage enterAndSubmitAllField(String firstNameTest, String lastNameText, String emailText,
+			String telephoneText, String passwordtext, String incorrectPasswordText) {
+
+		yesRadioButton.click();
+
+		enterAndSubmitAllMandatoryField(firstNameTest, lastNameText, emailText, telephoneText, passwordtext,
+				incorrectPasswordText);
+
+		return new AccountSuccessPage(driver);
+	}
+
+	public boolean verifyPlaceHolder() {
+		
+		String firstNamePlaceHolder = firstNameField.getAttribute("placeholder");
+		String lastNamePlaceHolder = lastNameField.getAttribute("placeholder");
+		String emailPlaceHolder = emailField.getAttribute("placeholder");
+		String telephonePlaceHolder = telephoneField.getAttribute("placeholder");
+		String passwordPlaceHolder = passwordField.getAttribute("placeholder");
+		String confirmPasswordPlaceHolder = confirmPasswordField.getAttribute("placeholder");
+
+		if (firstNamePlaceHolder.equals("First Name") && lastNamePlaceHolder.equals("Last Name")
+				&& emailPlaceHolder.equals("E-Mail") && telephonePlaceHolder.equals("Telephone")
+				&& passwordPlaceHolder.equals("Password") && confirmPasswordPlaceHolder.equals("Password Confirm")) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	public void validateAstrick() {
+		System.out.println(firstNameLabel.getText());
+	}
 
 }

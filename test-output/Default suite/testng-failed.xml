@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.openCart.testCases.Register">
+      <class name="com.openCart.testCases.AddToCart">
         <methods>
-          <include name="setUp"/>
-          <include name="TC_RF_009"/>
           <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="TC_ATC_002"/>
         </methods>
-      </class> <!-- com.openCart.testCases.Register -->
+      </class> <!-- com.openCart.testCases.AddToCart -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
