@@ -187,7 +187,7 @@ public class Register extends Base {
 
 	}
 
-	@Test(priority=9)
+	@Test(priority = 9)
 	public void TC_RF_009() {
 		registerPage = homePage.navigateToRegister();
 
@@ -203,34 +203,79 @@ public class Register extends Base {
 		}
 
 	}
-	
-	//@Test
+
+	// @Test
 	public void TC_RF_010() {
 		registerPage = homePage.navigateToRegister();
-		
-		
+
 		registerPage.enterAndSubmitAllField(dataProp.getProperty("firstName"), dataProp.getProperty("lastName"),
-				"pavanol", dataProp.getProperty("telephoneNumber"),
-				prop.getProperty("validPassword"), prop.getProperty("validPassword"));
+				"pavanol", dataProp.getProperty("telephoneNumber"), prop.getProperty("validPassword"),
+				prop.getProperty("validPassword"));
 
 		System.out.println(registerPage.validationMessageOfemail());
-		
+
 	}
-	
-	@Test (priority=13)
+
+	@Test(priority = 12)
+	public void TC_RF_012() {
+		registerPage = homePage.navigateToRegister();
+
+		accountSuccessPage = registerPage.enterAndSubmitAllFieldWithKeyboard(dataProp.getProperty("firstName"),
+				dataProp.getProperty("lastName"), Utility.randomEmailString(), dataProp.getProperty("telephoneNumber"),
+				dataProp.getProperty("password"));
+
+		Assert.assertEquals(accountSuccessPage.accountSuccessHeadingText(),
+				dataProp.getProperty("accountSuccessfullyCreatedHeading"));
+
+	}
+
+	@Test(priority = 13)
 	public void TC_RF_013() {
 
 		registerPage = homePage.navigateToRegister();
 
 		Assert.assertTrue(registerPage.verifyPlaceHolder(), "Validation of PlaceHolder is Failed");
 	}
-	
-	//@Test(priority=14)
+
+	// @Test(priority=14)
 	public void TC_RF_014() {
-		
-		registerPage = homePage.navigateToRegister();		
+
+		registerPage = homePage.navigateToRegister();
 		registerPage.validateAstrick();
+
+	}
+
+	//@Test(priority=19)
+	public void TC_RF_019() {
+		registerPage = homePage.navigateToRegister();
+
+		registerPage.enterAndSubmitAllField("   " + dataProp.getProperty("firstName") + "        ",
+				"   " + dataProp.getProperty("lastName") + "        ", "   " + Utility.randomEmailString() + "        ",
+				"   " + dataProp.getProperty("telephoneNumber") + "        ",
+				"   " + prop.getProperty("validPassword") + "        ");
+
+	}
 	
+	@Test(priority=20)
+	public void TC_RF_020() {
+
+		registerPage = homePage.navigateToRegister();
+		
+		Assert.assertFalse(registerPage.checkStatusOfPrivacyPolicy(), "Validation of checkbox in Pravicy policy Failed");
+
+	}
+	
+	@Test(priority=21)
+	public void TC_RF_021() {
+
+		registerPage = homePage.navigateToRegister();
+		registerPage.enterAndSubmitAllMandatoryFieldwithoutPrivacyPolicy(dataProp.getProperty("firstName"),
+				dataProp.getProperty("lastName"), Utility.randomEmailString(), dataProp.getProperty("telephoneNumber"),
+				dataProp.getProperty("password"));
+		
+		Assert.assertTrue(registerPage.checkStatusofPrivacyPolicyWarningMessage(), "Validation of Pravicy policy warning message Failed");
+		
+		
 	}
 
 }

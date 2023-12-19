@@ -37,7 +37,7 @@ public class ProductDisplayPage {
 
 	// Actions
 
-	public void addToCartOption() {
+	public void clickAddToCartOption() {
 		addToCartOption.click();
 	}
 

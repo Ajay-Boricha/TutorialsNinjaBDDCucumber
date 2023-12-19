@@ -1,5 +1,6 @@
 package com.openCart.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,42 +15,52 @@ public class RegisterPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
-	// object
-
+	
+	// Register Account Header WebElements Objects
 	@FindBy(xpath = "//h1[normalize-space()='Register Account']")
 	private WebElement registerAccountHeading;
-
+	
+	
+	// Your Personal Details WebElements Objects
 	@FindBy(xpath = "//input[@id='input-firstname']")
-	private WebElement firstNameField;
+	private WebElement fieldfirstName;
 
 	@FindBy(xpath = "//input[@id='input-lastname']")
-	private WebElement lastNameField;
+	private WebElement fieldLastName;
 
 	@FindBy(xpath = "//input[@id='input-email']")
-	private WebElement emailField;
+	private WebElement fieldEmail;
 
 	@FindBy(xpath = "//input[@id='input-telephone']")
 	private WebElement telephoneField;
-
+	
+	
+	// Your Password WebElements Objects	
 	@FindBy(xpath = "//input[@id='input-password']")
 	private WebElement passwordField;
 
 	@FindBy(xpath = "//input[@id='input-confirm']")
 	private WebElement confirmPasswordField;
-
+	
+	
+	// Newsletter WebElements Objects	
 	@FindBy(xpath = "//label[normalize-space()='Yes']")
 	private WebElement yesRadioButton;
 
 	@FindBy(xpath = "//input[@value='0']")
 	private WebElement noRadioButton;
-
+	
+	
+	// Privacy WebElements Objects	
 	@FindBy(xpath = "//input[@name='agree']")
-	private WebElement pravicyPolicy;
-
+	private WebElement pravicyPolicyCheckbox;
+	
+	// Continue WebElements Objects	
 	@FindBy(xpath = "//input[@value='Continue']")
 	private WebElement continueButton;
-
+	
+	
+	// Warning message WebElements Objects	
 	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement privacyPolicyWarningMessage;
 
@@ -73,22 +84,26 @@ public class RegisterPage {
 
 	@FindBy(xpath = "//div[@class='alert alert-danger alert-dismissible']")
 	private WebElement emailIsAlreadyRegisteredWarningMessage;
-
+	
+	
+	// Labels WebElements Objects	
 	@FindBy(xpath = "//label[normalize-space()='First Name']")
 	private WebElement firstNameLabel;
 
-	// action
-
+	
+	
+	
+	// Your Personal Details, Your Password, Newsletter, Privacy and Continue  Actions Methods
 	public void enterFirstName(String firstNameTest) {
-		firstNameField.sendKeys(firstNameTest);
+		fieldfirstName.sendKeys(firstNameTest);
 	}
 
 	public void enterLastName(String lastNameText) {
-		lastNameField.sendKeys(lastNameText);
+		fieldLastName.sendKeys(lastNameText);
 	}
 
 	public void enterEmail(String emailText) {
-		emailField.sendKeys(emailText);
+		fieldEmail.sendKeys(emailText);
 	}
 
 	public void enterTelephone(String telephoneText) {
@@ -111,12 +126,20 @@ public class RegisterPage {
 		noRadioButton.click();
 	}
 
-	public void checkOnPrivacyPolicy() {
-		pravicyPolicy.click();
+	public void clickOnPrivacyPolicy() {
+		pravicyPolicyCheckbox.click();
+	}
+	
+	public boolean checkStatusOfPrivacyPolicy() {		
+		return  pravicyPolicyCheckbox.isSelected();
 	}
 
 	public void clickOnContinueButton() {
 		continueButton.click();
+	}
+	
+	public boolean checkStatusofPrivacyPolicyWarningMessage() {
+		return privacyPolicyWarningMessage.isDisplayed();
 	}
 
 	public String privacyPolicyWarningMessageText() {
@@ -136,7 +159,7 @@ public class RegisterPage {
 	}
 
 	public String validationMessageOfemail() {
-		return emailField.getAttribute("validationMessage");
+		return fieldEmail.getAttribute("validationMessage");
 	}
 
 	public String telephoneWarningMessageText() {
@@ -161,13 +184,13 @@ public class RegisterPage {
 
 	public AccountSuccessPage enterAndSubmitAllMandatoryField(String firstNameTest, String lastNameText,
 			String emailText, String telephoneText, String passwordtext) {
-		firstNameField.sendKeys(firstNameTest);
-		lastNameField.sendKeys(lastNameText);
-		emailField.sendKeys(emailText);
+		fieldfirstName.sendKeys(firstNameTest);
+		fieldLastName.sendKeys(lastNameText);
+		fieldEmail.sendKeys(emailText);
 		telephoneField.sendKeys(telephoneText);
 		passwordField.sendKeys(passwordtext);
 		confirmPasswordField.sendKeys(passwordtext);
-		pravicyPolicy.click();
+		pravicyPolicyCheckbox.click();
 		continueButton.click();
 
 		return new AccountSuccessPage(driver);
@@ -176,14 +199,14 @@ public class RegisterPage {
 
 	public AccountSuccessPage enterAndSubmitAllMandatoryField(String firstNameTest, String lastNameText,
 			String emailText, String telephoneText, String passwordtext, String incorrectPasswordText) {
-		
-		firstNameField.sendKeys(firstNameTest);
-		lastNameField.sendKeys(lastNameText);
-		emailField.sendKeys(emailText);
+
+		fieldfirstName.sendKeys(firstNameTest);
+		fieldLastName.sendKeys(lastNameText);
+		fieldEmail.sendKeys(emailText);
 		telephoneField.sendKeys(telephoneText);
 		passwordField.sendKeys(passwordtext);
 		confirmPasswordField.sendKeys(incorrectPasswordText);
-		pravicyPolicy.click();
+		pravicyPolicyCheckbox.click();
 		continueButton.click();
 
 		return new AccountSuccessPage(driver);
@@ -221,12 +244,56 @@ public class RegisterPage {
 
 		return new AccountSuccessPage(driver);
 	}
+	
+	public void enterAndSubmitAllMandatoryFieldwithoutPrivacyPolicy(String firstNameTest, String lastNameText,
+			String emailText, String telephoneText, String passwordtext) {
+		
+		fieldfirstName.sendKeys(firstNameTest);
+		fieldLastName.sendKeys(lastNameText);
+		fieldEmail.sendKeys(emailText);
+		telephoneField.sendKeys(telephoneText);
+		passwordField.sendKeys(passwordtext);
+		confirmPasswordField.sendKeys(passwordtext);
+		continueButton.click();
+
+	}
+
+	public AccountSuccessPage enterAndSubmitAllFieldWithKeyboard(String firstNameTest, String lastNameText, String emailText,
+			String telephoneText, String passwordtext) {
+
+		yesRadioButton.click();
+		
+		fieldfirstName.sendKeys(firstNameTest);
+		fieldfirstName.sendKeys(Keys.TAB);
+		
+		fieldLastName.sendKeys(lastNameText);
+		fieldLastName.sendKeys(Keys.TAB);
+		
+		fieldEmail.sendKeys(emailText);
+		fieldEmail.sendKeys(Keys.TAB);
+		
+		telephoneField.sendKeys(telephoneText);
+		telephoneField.sendKeys(Keys.TAB);
+		
+		passwordField.sendKeys(passwordtext);
+		passwordField.sendKeys(Keys.TAB);
+		
+		confirmPasswordField.sendKeys(passwordtext);
+		confirmPasswordField.sendKeys(Keys.TAB);
+		
+		pravicyPolicyCheckbox.click();
+		pravicyPolicyCheckbox.sendKeys(Keys.ENTER);
+		//continueButton.click();
+
+
+		return new AccountSuccessPage(driver);
+	}
 
 	public boolean verifyPlaceHolder() {
-		
-		String firstNamePlaceHolder = firstNameField.getAttribute("placeholder");
-		String lastNamePlaceHolder = lastNameField.getAttribute("placeholder");
-		String emailPlaceHolder = emailField.getAttribute("placeholder");
+
+		String firstNamePlaceHolder = fieldfirstName.getAttribute("placeholder");
+		String lastNamePlaceHolder = fieldLastName.getAttribute("placeholder");
+		String emailPlaceHolder = fieldEmail.getAttribute("placeholder");
 		String telephonePlaceHolder = telephoneField.getAttribute("placeholder");
 		String passwordPlaceHolder = passwordField.getAttribute("placeholder");
 		String confirmPasswordPlaceHolder = confirmPasswordField.getAttribute("placeholder");

@@ -20,6 +20,10 @@ public class ShoppingCartPage {
 	@FindBy(xpath="//body[1]/div[2]/div[2]/div[1]/form[1]/div[1]/table[1]/tbody[1]/tr[1]/td[2]/a[1]")
 	private WebElement productName;
 	
+
+	@FindBy(xpath="(//a[contains(text(),'MacBook')])[2]")
+	private WebElement productNameMacBook;
+	
 	//Actions
 	
 	public boolean displayStatusOfAddedToCartProduct() {
@@ -30,7 +34,10 @@ public class ShoppingCartPage {
 			return false;
 		}
 		
-		
+	}
+	
+	public boolean displayStatusOfAddedMacBookToCartProduct() {
+		return productNameMacBook.isDisplayed();
 	}
 	
 }

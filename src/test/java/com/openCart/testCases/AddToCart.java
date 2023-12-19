@@ -33,7 +33,7 @@ public class AddToCart extends Base {
 	@AfterMethod
 	public void tearDown() {
 
-		// driver.quit();
+		driver.quit();
 	}
 
 	@Test(priority = 1)
@@ -41,7 +41,7 @@ public class AddToCart extends Base {
 
 		ProductDisplayPage productDisplay = homePage.enterSearchAndClickOnSearchButton("iMac");
 
-		productDisplay.addToCartOption();
+		productDisplay.clickAddToCartOption();
 
 		Assert.assertTrue(productDisplay.displayStatusOfAddedProductToCartsuccessMessage(),
 				"Validation of Added Product To Cart Success Message Failed");
@@ -83,7 +83,7 @@ public class AddToCart extends Base {
 
 		ProductDisplayPage productDisplay = homePage.enterSearchAndClickOnSearchButton("iMac");
 
-		productDisplay.addToCartOption();
+		productDisplay.clickAddToCartOption();
 
 		Assert.assertTrue(productDisplay.displayStatusOfAddedProductToCartsuccessMessage(),
 				"Validation of Added Product To Cart Success Message Failed");
@@ -113,4 +113,52 @@ public class AddToCart extends Base {
 				"Validation of Product that is in shopping cart Failed");
 	}
 
+	@Test(priority=5)
+	public void TC_ATC_005() throws InterruptedException {
+		
+		homePage.hoverMouseOverDesktopLink();
+		homePage.clicklinkShowAllDesktops();
+		homePage.clicklinkMacSubCategory();
+		
+		ProductDisplayPage productDisplay= new ProductDisplayPage(driver);
+		
+		productDisplay.clickAddToCartOption();
+
+		Assert.assertTrue(productDisplay.displayStatusOfAddedProductToCartsuccessMessage(),
+				"Validation of Added Product To Cart Success Message Failed");
+		
+		ShoppingCartPage shoppingCartPage = productDisplay.clickShoppingCartLinkInSuccessMessage();
+
+		Assert.assertTrue(shoppingCartPage.displayStatusOfAddedToCartProduct(),
+				"Validation of Product that is in shopping cart Failed");
+		
+	}
+	
+	@Test(priority=6)
+	public void TC_ATC_006() {
+		
+		ProductDisplayPage productDisplay= new ProductDisplayPage(driver);
+		productDisplay.clickAddToCartOption();
+		
+		Assert.assertTrue(productDisplay.displayStatusOfAddedProductToCartsuccessMessage(),
+				"Validation of Added Product To Cart Success Message Failed");
+		
+		ShoppingCartPage shoppingCartPage = productDisplay.clickShoppingCartLinkInSuccessMessage();
+
+		Assert.assertTrue(shoppingCartPage.displayStatusOfAddedMacBookToCartProduct(),
+				"Validation of Product that is in shopping cart Failed");
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
